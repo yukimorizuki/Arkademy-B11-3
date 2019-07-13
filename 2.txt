@@ -1,0 +1,16 @@
+public function validation()
+{
+    $this->form_validation->set_rules('username','Username','required|alpha_numeric|min_length[5]|max_length[9]'|'is_unique[Username],
+    [
+        'alpha_numeric' => 'harus memakai kombinasi angka dan huruf'
+        'min_length' => 'username terlalu pendek'
+        'max_length' => 'username terlalu panjang'
+        'is_unique' => 'username telah terdaftar'
+    ]);
+    $this->form_validation->set_rules('password','Password','required|alpha_numeric|min_length[8]|in_list[@]',
+    [
+        'alpha_numeric' => 'harus memakai kombinasi angka dan huruf'
+        'min_length' => 'panjang password minimal 8 huruf'
+        'in_list' => 'harus menggunakan @ pada password'
+    ]);
+}
